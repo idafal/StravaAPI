@@ -9,7 +9,7 @@ import csv
 #  Code: 638af175a5bcd1056d5c55d62f86e2f46907aada
 clientId = 63053
 clientSecret = '5277338dadfec5ab60cd7d750c40e59b5d36ffbe'
-urlCode = 'fab591cf80699c88840ea2beba559f1ed9f0d487'
+urlCode = 'fab591cf80699c88840ea2beba559f1ed9f0d487'  #  temporary
 
 def stravaAuthAPIcall():
     """
