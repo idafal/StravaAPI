@@ -18,4 +18,4 @@ if __name__ == '__main__':
 
     if MasterFlag == '1: Get all data':
         print(MasterFlag)
-        
+        strava.read_all_activities()
