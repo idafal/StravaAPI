@@ -6,5 +6,11 @@ def print_hi(name):
 
 
 if __name__ == '__main__':
-    print_hi('PyCharm')
-    test.foo()
+    MasterFlag = {
+        0: '0: Test',
+        1: '1: Test beta transformation',
+    }[0]
+    if MasterFlag == '0: Test':
+        print("test")
+        test.stravaAuthAPIcall()
+        test.read_activities()
