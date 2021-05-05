@@ -1,6 +1,7 @@
 import pandas as pd
 import utilities as util
 import requests
+import time
 
 #  Client ID: 63053
 #  Code: 638af175a5bcd1056d5c55d62f86e2f46907aada
@@ -8,11 +9,11 @@ import requests
 filename = 'strava_tokens.json'
 clientId = 63053
 clientSecret = '5277338dadfec5ab60cd7d750c40e59b5d36ffbe'
-urlCode = 'bbceecf6d65edd1867c3371e4a853cf12ffb07b8'  #  temporary
+urlCode = 'f2172a4761f062755910c273c4779a1e9b490034'  #  temporary - found by inserting url in webbrowser
 
 def read_all_activities():
     #  Get token
-    util.stravaAuthAPIcall(clientId, clientSecret, urlCode, filename)
+    util.stravaAuthAPIcall_automaticRefresh(clientId, clientSecret, urlCode, filename)
     access_token = util.read_tokens(filename)
     # Create dataframe with relevant data
     activities = pd.DataFrame(
@@ -50,6 +51,8 @@ def read_all_activities():
         # if no results then exit loop
         if (not r):
             break
+        # print(f"r:\n",r)
+        # print(f"r",r[0])
 
         # otherwise add new data to dataframe
         for x in range(len(r)):
@@ -75,5 +78,12 @@ def read_all_activities():
         # increment page
         page += 1
     activities.to_csv('strava_activities.csv')
+
+    return
+
+def testapicall():
+    print("test")
+    util.stravaAuthAPIcall_automaticRefresh(clientId, clientSecret, urlCode, filename)
+    access_token = util.read_tokens(filename)
 
     return

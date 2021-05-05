@@ -10,6 +10,7 @@ if __name__ == '__main__':
     MasterFlag = {
         0: '0: Test',
         1: '1: Get all data',
+        2: '2: Test automatic token refresh'
     }[1]
     if MasterFlag == '0: Test':
         print(MasterFlag)
@@ -19,3 +20,6 @@ if __name__ == '__main__':
     if MasterFlag == '1: Get all data':
         print(MasterFlag)
         strava.read_all_activities()
+    if MasterFlag == '2: Test automatic token refresh':
+        print(MasterFlag)
+        strava.testapicall()
