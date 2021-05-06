@@ -13,7 +13,7 @@ urlCode = 'f2172a4761f062755910c273c4779a1e9b490034'  #  temporary - found by in
 
 def read_all_activities():
     #  Get token
-    util.stravaAuthAPIcall_automaticRefresh(clientId, clientSecret, urlCode, filename)
+    util.stravaAuthAPIcall_automaticRefresh(clientId, clientSecret, filename)
     access_token = util.read_tokens(filename)
     # Create dataframe with relevant data
     activities = pd.DataFrame(
@@ -78,12 +78,12 @@ def read_all_activities():
         # increment page
         page += 1
     activities.to_csv('strava_activities.csv')
-
+    print("Activities successfully written to strava_activities.csv")
     return
 
 def testapicall():
     print("test")
-    util.stravaAuthAPIcall_automaticRefresh(clientId, clientSecret, urlCode, filename)
+    util.stravaAuthAPIcall_automaticRefresh(clientId, clientSecret, filename)
     access_token = util.read_tokens(filename)
 
     return
